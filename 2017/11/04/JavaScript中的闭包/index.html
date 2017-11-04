@@ -3,14 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hexo</title>
+  <title>JavaScript中的闭包 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="#闭包   闭包，是 Javascript 比较重要的一个概念，对于初学者来讲，闭包是一个特别抽象的概念，特别是ECMAScript 规范给的定义，如果没有实战经验，很难从定义去理解它。 ###对闭包的初步认识： &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在接触一个新技术的时候，我们首先会做的一件事就是找它的 demo。对于我们来说，看代码比自然语言更能理解一个事物的本质。所以下面我先写一个">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript中的闭包">
+<meta property="og:url" content="http://yoursite.com/2017/11/04/JavaScript中的闭包/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="#闭包   闭包，是 Javascript 比较重要的一个概念，对于初学者来讲，闭包是一个特别抽象的概念，特别是ECMAScript 规范给的定义，如果没有实战经验，很难从定义去理解它。 ###对闭包的初步认识： &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在接触一个新技术的时候，我们首先会做的一件事就是找它的 demo。对于我们来说，看代码比自然语言更能理解一个事物的本质。所以下面我先写一个">
+<meta property="og:updated_time" content="2017-11-04T01:01:44.961Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="JavaScript中的闭包">
+<meta name="twitter:description" content="#闭包   闭包，是 Javascript 比较重要的一个概念，对于初学者来讲，闭包是一个特别抽象的概念，特别是ECMAScript 规范给的定义，如果没有实战经验，很难从定义去理解它。 ###对闭包的初步认识： &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在接触一个新技术的时候，我们首先会做的一件事就是找它的 demo。对于我们来说，看代码比自然语言更能理解一个事物的本质。所以下面我先写一个">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -59,9 +63,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-JavaScript中的闭包" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-JavaScript中的闭包" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/11/04/JavaScript中的闭包/" class="article-date">
   <time datetime="2017-11-04T00:20:35.000Z" itemprop="datePublished">2017-11-04</time>
@@ -74,8 +76,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/04/JavaScript中的闭包/">JavaScript中的闭包</a>
+    <h1 class="article-title" itemprop="name">
+      JavaScript中的闭包
     </h1>
   
 
@@ -127,103 +129,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-数组" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/10/28/数组/" class="article-date">
-  <time datetime="2017-10-28T01:46:45.000Z" itemprop="datePublished">2017-10-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/28/数组/">数组</a>
-    </h1>
+    <a href="/2017/10/28/数组/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">数组</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>#JavaScript中的数组</p>
-<p>###一、数组创建</p>
-<p>#####1.JavaScrip中创建数组有两种方式<br>(1)使用Array构造函数：<br>语法：<br>&nbsp;&nbsp; new Array()<br>注：小括号()说明：<br>A.预先知道数组要保存的项目数量。<br>B.想Array构造函数中传递数组应包含的项。<br></p>
-<p>例:<br>var arr1 =new Array();//创建一个空数组<br>var arr2 =new Array(10);//创建一个包含10项的数组<br>var arr3 =new Array(“lily”,”lucy”,”Tom”);//创建一个包含3个字符串的数组<br>(2)使用数组字面量表示法：<br>&nbsp;&nbsp;&nbsp;&nbsp;由一对包含数组项的方括号[]表示，多个数组项之间以逗号隔开。<br><br>例:<br>var arr4=[];//创建一个空数组<br>var arr5=[20];//创建一个包含1项的数组<br>var arr6=[“lily”,”lucy”,”Tom”];//创建一个包含3个字符串的数组</p>
-<p>#####2.数组元素的读写<br>&nbsp;&nbsp;&nbsp;&nbsp;读取和设置值时，使用方括号[]并提供相应的索引说明：索引是从0开始的正整数。<br><br>例:<br>var arr6=[“lily”,”lucy”,”Tom”];//创建一个包含3个字符串的数组<br>alert(arr6[0]);//lily<br>arr6[1]=”mary”;//修改第二项为mary<br>arr6[3]=”sean”;//增加第四项为sean</p>
-<p>#####3.数组长度<br>语法：<br>array.length<br>注：<br>A、通过设置length可以从数组的末尾移除项或向数组中添加新项。<br>B、当把一个值放在超出当前数组大小的位置上时，数组就会重新计算其长度值，长度值等于最后一项的索引加1。<br><br>例：<br>var arr=[“lily”,”lucy”,”Tom”];//创建一个包含3个字符串的数组<br>arr[arr.length]=”sean”;//在下标为3处(也就是数组尾部)添加一项”sean”<br>arr.length=arr.length-1;//将数组的最后一项删除</p>
-<p>###二、数组方法<br>1.push()和pop()</p>
-<p>(1).push(): 可以接收任意数量的参数，把它们逐个添加到数组末尾，并返回修改后数组的长度。<br>(2).pop()：数组末尾移除最后一项，减少数组的 length 值，然后返回移除的项。<br></p>
-<p>例：<br>var arr = [“Lily”,”lucy”,”Tom”];<br>var count = arr.push(“Jack”,”Sean”);<br>console.log(count); // 5<br>console.log(arr); // [“Lily”, “lucy”, “Tom”, “Jack”, “Sean”]<br>var item = arr.pop();<br>console.log(item); // Sean<br>console.log(arr); // [“Lily”, “lucy”, “Tom”, “Jack”]<br>2.shift() 和 unshift()</p>
-<p>(1).shift()：删除原数组第一项，并返回删除元素的值；如果数组为空则返回undefined 。<br>(2).unshift:将参数添加到原数组开头，并返回数组的长度 。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;这组方法和上面的push()和pop()方法正好对应，一个是操作数组的开头，一个是操作数组的结尾。<br></p>
-<p>例：<br>var arr = [“Lily”,”lucy”,”Tom”];<br>var count = arr.unshift(“Jack”,”Sean”);<br>console.log(count); // 5<br>console.log(arr); //[“Jack”, “Sean”, “Lily”, “lucy”, “Tom”]<br>var item = arr.shift();<br>console.log(item); // Jack<br>console.log(arr); // [“Sean”, “Lily”, “lucy”, “Tom”]</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/28/数组/" data-id="cj9kmkijo0001ukyo7os82vyb" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/10/14/hello-world/" class="article-date">
-  <time datetime="2017-10-14T02:38:09.633Z" itemprop="datePublished">2017-10-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/14/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/14/hello-world/" data-id="cj9kmkijq0002ukyo4gq45ajy" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 </section>
         
